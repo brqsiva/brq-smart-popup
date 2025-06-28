@@ -25,22 +25,41 @@ export default function BRQSmartPopup({
   useEffect(() => {
     const listeners = [];
 
-    const handleKeyDown = (e) => {
-      if (!show) return;
+    // const handleKeyDown = (e) => {
+    //   if (!show) return;
 
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        setHighlightIndex((prev) => (prev + 1) % filteredData.length);
-      } else if (e.key === "ArrowUp") {
-        e.preventDefault();
-        setHighlightIndex((prev) => (prev - 1 + filteredData.length) % filteredData.length);
-      } else if (e.key === "Enter") {
-        e.preventDefault();
-        fillForm(filteredData[highlightIndex]);
-      } else if (e.key === "Escape") {
-        setShow(false);
-      }
-    };
+    //   if (e.key === "ArrowDown") {
+    //     e.preventDefault();
+    //     setHighlightIndex((prev) => (prev + 1) % filteredData.length);
+    //   } else if (e.key === "ArrowUp") {
+    //     e.preventDefault();
+    //     setHighlightIndex((prev) => (prev - 1 + filteredData.length) % filteredData.length);
+    //   } else if (e.key === "Enter") {
+    //     e.preventDefault();
+    //     fillForm(filteredData[highlightIndex]);
+    //   } else if (e.key === "Escape") {
+    //     setShow(false);
+    //   }
+    // };
+
+    const handleKeyDown = (e) => {
+  if (!show) return;
+
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    setHighlightIndex((prev) => (prev + 1) % filteredData.length);
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    setHighlightIndex((prev) => (prev - 1 + filteredData.length) % filteredData.length);
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    fillForm(filteredData[highlightIndex]);
+  } else if (e.key === "Escape") {
+    e.preventDefault();
+    setShow(false);
+  }
+  // Don't block other keys like Backspace/Delete
+};
 
     Object.entries(bindFields).forEach(([fieldPath, controlId]) => {
       const input = document.getElementById(controlId);
