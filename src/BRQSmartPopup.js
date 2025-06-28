@@ -25,41 +25,24 @@ export default function BRQSmartPopup({
   useEffect(() => {
     const listeners = [];
 
-    // const handleKeyDown = (e) => {
-    //   if (!show) return;
-
-    //   if (e.key === "ArrowDown") {
-    //     e.preventDefault();
-    //     setHighlightIndex((prev) => (prev + 1) % filteredData.length);
-    //   } else if (e.key === "ArrowUp") {
-    //     e.preventDefault();
-    //     setHighlightIndex((prev) => (prev - 1 + filteredData.length) % filteredData.length);
-    //   } else if (e.key === "Enter") {
-    //     e.preventDefault();
-    //     fillForm(filteredData[highlightIndex]);
-    //   } else if (e.key === "Escape") {
-    //     setShow(false);
-    //   }
-    // };
-
     const handleKeyDown = (e) => {
-  if (!show) return;
+      if (!show) return;
 
-  if (e.key === "ArrowDown") {
-    e.preventDefault();
-    setHighlightIndex((prev) => (prev + 1) % filteredData.length);
-  } else if (e.key === "ArrowUp") {
-    e.preventDefault();
-    setHighlightIndex((prev) => (prev - 1 + filteredData.length) % filteredData.length);
-  } else if (e.key === "Enter") {
-    e.preventDefault();
-    fillForm(filteredData[highlightIndex]);
-  } else if (e.key === "Escape") {
-    e.preventDefault();
-    setShow(false);
-  }
-  // Don't block other keys like Backspace/Delete
-};
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setHighlightIndex((prev) => (prev + 1) % filteredData.length);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setHighlightIndex((prev) => (prev - 1 + filteredData.length) % filteredData.length);
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        fillForm(filteredData[highlightIndex]);
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        setShow(false);
+      }
+      // Don't block other keys like Backspace/Delete
+    };
 
     Object.entries(bindFields).forEach(([fieldPath, controlId]) => {
       const input = document.getElementById(controlId);
@@ -178,7 +161,7 @@ export default function BRQSmartPopup({
         >
           {displayFields.map((field, i) => (
             <div key={i} style={{ fontSize: "14px", color: "#374151" }}>
-              <span style={{ fontWeight: "600", color: "#1f2937" }}>
+              <span style={{ fontWeight: "800", color: "#1f2937", textDecoration: "underline" }}>
                 {field.split(".").pop()}:
               </span>{" "}
               {getValueByPath(item, field)}
