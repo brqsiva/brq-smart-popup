@@ -1,9 +1,10 @@
 NOTE: _**THIS WILL WORK IN input HTML TAG ONLY !**_
 1. In the root folder of your project install brq-smart-popup using following command
+
     **npm install https://github.com/brqsiva/brq-smart-popup**
 
 2. Suppose you want to show data from JSON in your input field as suggestion, where the JSON data extracted from _https://dummyjson.com/products_ is structured like as follows,
-    _products": [
+    _{products": [
         {
           "id": 1,
           "title": "Essence Mascara Lash Princess",
